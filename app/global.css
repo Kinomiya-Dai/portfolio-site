@@ -1,12 +1,5 @@
 @import 'tailwindcss';
 
-@theme inline {
-  --color-pf-bg: #F5F5F5;
-  --color-pf-text: #3D3D3D;
-}
-
-
-
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
@@ -24,6 +17,11 @@
   --sh-entity: #e25a1c;
 }
 
+@theme inline {
+  --color-pf-bg: #F5F5F5;
+  --color-pf-text: #3D3D3D;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -34,6 +32,10 @@
   }
   html {
     color-scheme: dark;
+  }
+  @theme inline {
+  --color-pf-bg: #090616;
+  --color-pf-text: #3D3D3D;
   }
 }
 
