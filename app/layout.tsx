@@ -48,14 +48,15 @@ export default function RootLayout({
         'text-pf-text bg-pf-bg dark:text-pf-text dark:bg-pf-bg',
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
+      <body className="antialiased max-w- lg:mx-auto">
+        <Navbar />
+        <main className="flex-auto min-w-0 flex flex-col">
           {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
+
         </main>
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

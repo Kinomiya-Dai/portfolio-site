@@ -34,8 +34,8 @@
     color-scheme: dark;
   }
   @theme inline {
-  --color-pf-bg: #090616;
-  --color-pf-text: #3D3D3D;
+  /* --color-pf-bg: #090616;
+  --color-pf-text: #3D3D3D; */
   }
 }
 
