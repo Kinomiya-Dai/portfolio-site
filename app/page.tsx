@@ -24,10 +24,10 @@ const languages = [
 ];
 
 const frameworks = [
-  { name: "React", icon: <FaReact />, exp: true, class: "fill-[#30C7EC]" },//Todo:改造する（defs）
+  { name: "React", icon: <FaReact />, exp: true, class: "fill-[#30C7EC]" },//Todo:改造する
   { name: "Next.js", icon: <SiNextdotjs />, exp: true, class: "fill-[#000]" },
-  { name: "SpringBoot", icon: <SiSpring />, exp: true, class: "fill-[#88db53]" },
-  { name: "FastAPI", icon: <SiFastapi />, exp: true, class: "fill-[#0c9c8e]" },
+  { name: "SpringBoot", icon: <SiSpring />, exp: true, class: "fill-[#88db53]" },//Todo:色が変わらない→改造する
+  { name: "FastAPI", icon: <SiFastapi />, exp: true, class: "fill-[#009385]" },//Todo：色が変わらない→改造する
 ];
 
 const tools = [
