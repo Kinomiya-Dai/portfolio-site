@@ -8,6 +8,7 @@ import { VscCode } from "react-icons/vsc";
 import IpaLogo from "./components/icons/ipa-logo"
 import { PiFigmaLogoFill } from 'react-icons/pi';
 import { CpdaLogo } from './components/icons';
+import { UndrawCodeThinking } from './components/icons';
 
 import SkillCard from './components/skillcard'
 
@@ -127,6 +128,7 @@ export default function Page() {
             <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
               <VscCode className='w-6 h6 mr-2' />
               Language
+              <UndrawCodeThinking className='w-32 h-14 position absolute bottom-1/2 right-0 ' />
             </h3>
             <SkillCard skills={languages} />
           </section>
