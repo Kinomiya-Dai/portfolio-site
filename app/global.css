@@ -1,11 +1,16 @@
 @import 'tailwindcss';
 
+/* この設定でdark:が有効になる */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
 }
 
 :root {
+  --animate-scroll-down: scroll 2s infinite;
+  /* Syntax highlight */
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -17,34 +22,45 @@
   --sh-entity: #e25a1c;
 }
 
-@theme inline {
-  --color-pf-bg: #F5F5F5;
+/* tailwind.config.tsの設定項目値
+・色設定は--color-
+・font設定は--text-
+・
+として記述することで、bg-pf-textなどで使用できる。
+*/
+@theme {
+  /* light設定 */
   --color-pf-text: #3D3D3D;
+  --color-pf-bg: #F5F5F5;
   --color-pf-ui-border: #DEDEDE;
+  /* dark設定 */
+  --color-pf-text-dark: #CACACA;
+  --color-pf-bg-dark: #090616;
 }
 
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
+@layer utilities {
+  /* 親要件:relative */
+  .text-before-line {
+    @apply before:content-[''] before:absolute before:left-0 before:top-0;
   }
-  html {
-    color-scheme: dark;
+  /* 親要件：flex,relative */
+  .text-after-line {
+    @apply after:content-[''] after:flex-1 after:h-px after:w-full after:ml-3 before:bg-pf-text before:w-1.5 before:h-full after:bg-[linear-gradient(to_right,rgba(61,61,61,1)_0%,rgba(61,61,61,0)_100%)];
   }
-  @theme inline {
-  /* --color-pf-bg: #090616;
-  --color-pf-text: #3D3D3D; */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
-}
-
-html {
-  min-width: 360px;
 }
 
 @layer components {
+  .scroll-down-animate {
+    @apply relative pt-16 text-center;
+  }
+  .scroll-down-animate::before {
+    content: "";
+    @apply absolute top-0 left-0 right-0 m-auto w-5 h-5 border-b border-l border-black;
+    animation: var(--animate-scroll-down);
+  }
   .text-underline-animate {
     @apply transition-all duration-300;
     background-image: linear-gradient(var(--color-pf-text), var(--color-pf-text));
@@ -52,14 +68,38 @@ html {
     background-position: bottom right;
     background-size: 0 1px;
   }
-
   .text-underline-animate:hover {
     background-position: bottom left;
     background-size: 100% 1px;
   }
 }
 
+html {
+  min-width: 360px;
+}
 
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+    transform: rotate(-45deg) translate(-20px, 20px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*********************************
+
+  @tailwindcss/typography
+
+**********************************/
 .prose .anchor {
   @apply absolute invisible no-underline;
 

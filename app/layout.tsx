@@ -6,6 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 import { cx } from './utils/classnames'
+import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -45,19 +46,24 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
+      suppressHydrationWarning
       className={cx(
-        'text-pf-text bg-pf-bg dark:text-pf-text dark:bg-pf-bg box-border',
+        'box-border text-pf-text bg-pf-bg dark:text-pf-text-dark dark:bg-pf-bg-dark transition-colors duration-800 ease-in-out',
+        '[&_ *]:duration-initial',
       )}
     >
       <body className="antialiased max-w- lg:mx-auto">
-        <Navbar />
-        <main className="flex-auto min-w-0 flex flex-col">
-          {children}
-
-        </main>
-        <Footer />
-        <Analytics />
-        <SpeedInsights />
+        <ThemeProvider
+          defaultTheme="system"
+          enableSystem={true}>
+          <Navbar />
+          <main className="flex-auto min-w-0 flex flex-col">
+            {children}
+          </main>
+          <Footer />
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   )

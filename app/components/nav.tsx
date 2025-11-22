@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import DarkModeToggle from './darkModeToggle'
 
 const navItems = {
   '/': {
@@ -26,20 +27,23 @@ export function Navbar() {
       <Link href="/">
         <h1 className='px-2 font-bold leading-14'>Kinomiya Dai</h1>
       </Link>
-      <div className={cx("flex flex-row justify-end space-x-0")}>
-        {Object.entries(navItems).map(([path, { name }]) => {
-          return (
-            <Link
-              key={path}
-              href={path}
-              className={cx("text-underline-animate transition-all hover:opacity-75 flex align-middle relative py-1 px-2 m-1",
-                // "dark:hover:text-neutral-200"
-              )}
-            >
-              {name}
-            </Link>
-          )
-        })}
+      <div className={cx("flex flex-row items-center justify-end")}>
+        <div className='flex flex-row items-center justify-start space-x-0 mr-8'>
+          {Object.entries(navItems).map(([path, { name }]) => {
+            return (
+              <Link
+                key={path}
+                href={path}
+                className={cx("text-underline-animate transition-all hover:opacity-75 flex align-middle relative py-1 px-2 m-1",
+                  // "dark:hover:text-neutral-200"
+                )}
+              >
+                {name}
+              </Link>
+            )
+          })}
+        </div>
+        <DarkModeToggle />
       </div>
     </nav >
   )
