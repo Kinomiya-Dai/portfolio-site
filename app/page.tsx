@@ -7,6 +7,7 @@ import { UndrawDevAvatarIcon } from './components/icons';
 
 import Link from 'next/link';
 import SkillList from './components/skillList';
+import { WorkPosts } from './feature/work/components/posts';
 
 export default function Page() {
 
@@ -82,7 +83,9 @@ export default function Page() {
       </section>
       <section className='py-14 flex flex-col items-center gap-14 mb-16'>
         <h2 className='text-4xl font-bold mb-10'>Works</h2>
-        <div className='h-[424px] w-[820px] border border-pf-text'></div>
+        <div className='h-[506px] w-full'>
+          <WorkPosts />
+        </div>
         <div className='flex'>
           <Link href="./work">
             <p className='text-2xl font-light border-b cursor-pointer'>View All Works</p>
