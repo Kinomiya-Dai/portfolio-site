@@ -84,7 +84,9 @@ export default function Page() {
         <h2 className='text-4xl font-bold mb-10'>Works</h2>
         <div className='h-[424px] w-[820px] border border-pf-text'></div>
         <div className='flex'>
-          <p className='text-2xl font-light border-b cursor-pointer'>View All Works</p>
+          <Link href="./work">
+            <p className='text-2xl font-light border-b cursor-pointer'>View All Works</p>
+          </Link>
         </div>
       </section>
       <section className='py-14 flex flex-col items-center gap-14'>

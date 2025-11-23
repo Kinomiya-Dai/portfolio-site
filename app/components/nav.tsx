@@ -5,11 +5,11 @@ const navItems = {
   '/': {
     name: 'About',
   },
-  '/works': {
-    name: 'works',
+  '/work': {
+    name: 'Works',
   },
   '/blog': {
-    name: 'blog',
+    name: 'Blog',
   },
 }
 const cx = (...classes) => classes.filter(Boolean).join(' ')
