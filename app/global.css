@@ -37,7 +37,7 @@
   --color-pf-slider-ui: #DA7E53;
   /* dark設定 */
   --color-pf-text-dark: #CACACA;
-  --color-pf-bg-dark: #090616;
+  --color-pf-bg-dark: #232323;
 }
 
 @layer utilities {

@@ -1,0 +1,50 @@
+---
+title: 'Next.jsにSplideを導入する際に少しハマったので備忘録'
+publishedAt: '2025-11-18'
+summary: 'test'
+image: '/images/blog/cool_dragon04.png'
+---
+
+## Next.jsにSplide導入
+
+ポートフォリオサイト作成に当たって  
+スライダーの実装を何で行うか、といった問題があった。
+
+簡単に調査をしてみたところ、splideがよさげだったので実装することにした。
+
+公式Splideリンク:[https://ja.splidejs.com/](https://ja.splidejs.com/)
+
+## 実装時つまずいた部分
+
+結論から書くと、
+```
+splide-nextjs
+```
+を軽い気持ちで導入してはいけない。  
+公式のsplide-reactを導入するのが吉。
+
+```
+pnpm i splide-react
+```
+
+導入の際はこちらを参考にするといいだろう。
+
+Splide-react公式：[https://ja.splidejs.com/integration/react-splide/](https://ja.splidejs.com/integration/react-splide/
+)
+
+[2025-11-23日現在]
+
+## 症状
+
+splide-reactでは動かなかった→splide-nextjsを入れてみたら動いた。
+
+との記事を参考に、最初にsplide-nextjsで実装を試みたが、  
+簡易設定を済ませ、画面をスライドを描画すると横幅が1万pxを超える挙動を見せていた。
+
+option設定などが問題ではなさそうなので、再調査。  
+splide-nextjsでは動かないためsplide-reactをしようするのが吉。  
+といった記事を参考にsplide-reactを導入したところうまくいった。
+
+## 学び
+個人がフォークしたリポジトリを使用する際は、それが正しく動くとは限らない。  
+やはり公式リポジトリが正義。
