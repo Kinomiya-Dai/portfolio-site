@@ -35,7 +35,6 @@ export function Navbar() {
                 key={path}
                 href={path}
                 className={cx("text-underline-animate transition-all hover:opacity-75 flex align-middle relative py-1 px-2 m-1",
-                  // "dark:hover:text-neutral-200"
                 )}
               >
                 {name}
