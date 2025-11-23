@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "gen:icons": "svgr --typescript --memo --filename-case kebab  public/images/svg/ --out-dir app/components/icons/"
