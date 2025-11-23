@@ -1,4 +1,4 @@
-import { BlogPosts } from 'app/components/posts'
+import { BlogPosts } from 'app/feature/blog/components/posts'
 import { FaAws, FaCss3Alt, FaDatabase, FaDocker, FaGitAlt, FaGithub, FaHtml5, FaJava, FaJs, FaPython, FaReact } from "react-icons/fa";
 import { SiFastapi, SiNextdotjs, SiPhp, SiSpring, SiTypescript, SiVite, SiZenn } from "react-icons/si";
 import Mylogo from '../app/components/icons/undraw-man-light'

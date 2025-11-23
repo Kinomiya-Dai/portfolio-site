@@ -1,5 +1,3 @@
-import Link from 'next/link'
-import { formatDate } from 'app/blog/sync-utils'
 import { getBlogPosts } from 'app/blog/utils'
 import DisplayPosts from './displayPosts'
 
