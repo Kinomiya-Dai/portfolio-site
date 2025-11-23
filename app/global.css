@@ -36,6 +36,7 @@
   --color-pf-highlight-bg: #FAFDFF;
   --color-pf-slider-ui: #DA7E53;
   --color-pf-disabled-ui: #4c4c4c;
+  --color-pf-works-line: #2F2F2F;
   /* dark設定 */
   --color-pf-text-dark: #CACACA;
   --color-pf-bg-dark: #232323;
@@ -52,6 +53,24 @@
   }
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+
+  .animate-fadeCircle {
+    animation: fadeCircle 1.2s infinite ease-in-out
+  }
+  @keyframes fadeCircle {
+    0%, 39%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+  }
+
+  @keyframes loading-5 {
+    50% {
+      transform: translateY(10px);
+    }
+  }
+
+  .animate-loading-5 {
+    animation: loading-5 1s infinite;
   }
 }
 
@@ -129,6 +148,13 @@ html {
 
 .splide__pagination {
   display: none;
+}
+
+.splide-work .splide__arrow--prev {
+  left: -6em;
+}
+.splide-work .splide__arrow--next {
+  right: -6em;
 }
 
 /*********************************

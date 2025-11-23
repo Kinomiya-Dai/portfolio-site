@@ -3,10 +3,13 @@
 import Link from "next/link"
 
 import dynamic from "next/dynamic";
+import React from "react";
+import Loading from "app/components/loading";
 
 // ssr: false でサーバーではレンダリングされない
 const Splide = dynamic(() => import("@splidejs/react-splide").then(mod => mod.Splide), {
   ssr: false,
+  loading: () => <Loading />, // 読み込み中に表示
 });
 
 const SplideSlide = dynamic(
@@ -33,7 +36,7 @@ type Metadata = {
 
 const DisplayPosts = ({ allBlogs }: BlogListProps) => {
   return (
-    <div className="min-w-full flex justify-center overflow-x-hidden overflow-y-visible py-8">
+    <div className="min-w-full h-[418px] flex justify-center overflow-x-hidden overflow-y-visible py-8">
       <div className="max-w-6xl">
         <Splide
           aria-label="blogs-list"
@@ -80,7 +83,12 @@ const DisplayPosts = ({ allBlogs }: BlogListProps) => {
                         <p className="font-bold dark:text-neutral-100 tracking-tight mb-2 line-clamp-2">
                           {post.metadata.title}
                         </p>
-                        <p className="text-[12px] line-clamp-3">{post.metadata.summary}</p>
+                        <p className="text-[12px] line-clamp-3">{post.metadata.summary.split('<br>').map((line, i) => (
+                          <React.Fragment key={i}>
+                            {line}
+                            <br />
+                          </React.Fragment>
+                        ))}</p>
                       </div>
                       <p className="absolute text-[12px] font-medium bottom-3 right-4 dark:text-neutral-400 tabular-nums">
                         {post.metadata.publishedAt}
