@@ -75,11 +75,14 @@ const DisplayPosts = ({ allWorks }: WorkListProps) => {
                     <div className="h-40">
                       <img className="w-full h-full" src={post.metadata.image} alt="" />
                     </div>
-                    <div className="relative h-40 flex flex-col md:flex-row space-x-0 p-8 text-pf-text bg-pf-bg">
-                      <p className="font-bold dark:text-neutral-100 tracking-tight">
-                        {post.metadata.title}
-                      </p>
-                      <p className="absolute bottom-4 right-4 dark:text-neutral-400 tabular-nums">
+                    <div className="relative h-40 flex flex-col md:flex-row space-x-0 px-4 py-3 text-pf-text bg-pf-bg">
+                      <div className="flex flex-col">
+                        <p className="font-bold dark:text-neutral-100 tracking-tight mb-2 line-clamp-2">
+                          {post.metadata.title}
+                        </p>
+                        <p className="text-[12px] line-clamp-3">{post.metadata.summary}</p>
+                      </div>
+                      <p className="absolute text-[12px] font-medium bottom-3 right-4 dark:text-neutral-400 tabular-nums">
                         {post.metadata.publishedAt}
                       </p>
                     </div>
