@@ -1,9 +1,9 @@
 "use client"
-import React, { useRef } from "react";
+import React, { ReactElement, useRef } from "react";
 
 type Skill = {
   name: string;
-  icon: React.ReactNode; // アイコンはReact要素:コンポーネント
+  icon: ReactElement<{ className?: string }>;
   class?: string;
   description?: string;
   exp: boolean;
