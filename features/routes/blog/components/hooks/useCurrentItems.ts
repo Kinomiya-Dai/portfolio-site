@@ -7,7 +7,6 @@ type sortedBlogs = {
 }
 
 type Metadata = {
-  num: string
   title: string
   publishedAt: string
   summary: string

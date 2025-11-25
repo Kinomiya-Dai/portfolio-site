@@ -6,12 +6,14 @@ import { UndrawDevAvatarIcon } from '../components/icons';
 
 import Link from 'next/link';
 import SkillList from '../components/skillList';
-import DisplayPosts from '../features/routes/work/components/displayPosts';
-import { getWorkPosts } from './work/utils';
+import DisplayBlogs from '../features/routes/blog/components/displayPosts';
+import DisplayWorks from '../features/routes/work/components/displayPosts';
+import { getWorkPosts } from '../features/routes/work/utils/utils';
+import { getBlogPosts } from "../features/routes/blog/utils/utils";
 
 export default function Page() {
-  const allWorks = getWorkPosts()
-
+  const blogs = getBlogPosts();
+  const works = getWorkPosts();
   return (
     <>
       <section className='min-h-screen flex flex-col justify-around'>
@@ -79,7 +81,7 @@ export default function Page() {
       <section className='py-14 flex flex-col items-center gap-14'>
         <h2 className='text-4xl font-bold'>Blog</h2>
         <div className='w-full'>
-          <DisplayPosts />
+          <DisplayBlogs allBlogs={blogs} />
           <div className='flex justify-center w-full pt-6'>
             <Link href="./blog">
               <p className='text-2xl font-light border-b cursor-pointer'>View All Blogs</p>
@@ -91,7 +93,7 @@ export default function Page() {
       <section className='py-14 flex flex-col items-center gap-14 mb-16'>
         <h2 className='text-4xl font-bold mb-10'>Works</h2>
         <div className='h-[506px] w-full'>
-          <DisplayPosts />
+          <DisplayWorks allWorks={works} />
         </div>
         <div className='flex'>
           <Link href="./work">

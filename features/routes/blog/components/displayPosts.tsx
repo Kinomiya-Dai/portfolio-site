@@ -5,7 +5,6 @@ import Link from "next/link"
 import dynamic from "next/dynamic";
 import React from "react";
 import Loading from "components/loading";
-import { useBlogPosts } from "./hooks/useWorkPosts";
 
 // ssr: false でサーバーではレンダリングされない
 const Splide = dynamic(() => import("@splidejs/react-splide").then(mod => mod.Splide), {
@@ -18,9 +17,24 @@ const SplideSlide = dynamic(
   { ssr: false }
 );
 
+type BlogListProps = {
+  allBlogs: AllBlogs[]
+}
 
-const DisplayPosts = () => {
-  const { allBlogs } = useBlogPosts()
+type AllBlogs = {
+  metadata: Metadata;
+  slug: string;
+  content: string;
+}
+
+type Metadata = {
+  title: string
+  publishedAt: string
+  summary: string
+  image?: string
+}
+
+const DisplayPosts = ({ allBlogs }: BlogListProps) => {
   return (
     <div className="min-w-full h-[418px] flex justify-center overflow-x-hidden overflow-y-visible py-8">
       <div className="max-w-6xl">
@@ -48,8 +62,8 @@ const DisplayPosts = () => {
             },
           }}
         >
-          {allBlogs
-            .map((post) => (
+          {allBlogs && allBlogs.length > 0 ? (
+            allBlogs.map((post) => (
               <SplideSlide key={post.slug}>
                 <Link
                   className="flex flex-col space-y-1 mb-4"
@@ -78,7 +92,8 @@ const DisplayPosts = () => {
                   </article>
                 </Link>
               </SplideSlide>
-            ))}
+            ))) : (<Loading />)
+          }
         </Splide>
       </div>
     </div>

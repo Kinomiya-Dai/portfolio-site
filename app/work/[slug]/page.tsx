@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'components/mdx'
-import { formatDate, getWorkPosts } from 'app/work/utils'
+import { formatDate, getWorkPosts } from 'features/routes/work/utils/utils'
 import { baseUrl } from 'app/sitemap'
 import { FaRegClock } from 'react-icons/fa'
 import DisplayPosts from 'features/routes/work/components/displayPosts'
@@ -15,6 +15,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const syncParams = await params;
+
   let post = getWorkPosts().find((post) => post.slug === syncParams.slug)
   if (!post) {
     return
@@ -56,7 +57,8 @@ export async function generateMetadata({ params }) {
 
 export default async function Work({ params }) {
   const syncParams = await params;
-  let post = getWorkPosts().find((post) => post.slug === syncParams.slug)
+  const allWorks = getWorkPosts();
+  let post = allWorks.find((post) => post.slug === syncParams.slug)
 
   if (!post) {
     notFound()
@@ -105,7 +107,7 @@ export default async function Work({ params }) {
           <CustomMDX source={post.content} />
         </article>
       </div>
-      <DisplayPosts />
+      <DisplayPosts allWorks={allWorks} />
     </section>
   )
 }

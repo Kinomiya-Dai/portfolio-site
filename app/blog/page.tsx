@@ -1,4 +1,5 @@
 import DisplayPostsList from 'features/routes/blog/components/displayPostsList'
+import { getBlogPosts } from 'features/routes/blog/utils/utils'
 
 export const metadata = {
   title: 'ブログ一覧 -木乃宮 ダイ-',
@@ -6,9 +7,10 @@ export const metadata = {
 }
 
 export default function Page() {
+  const allBlogs = getBlogPosts();
   return (
     <section>
-      <DisplayPostsList />
+      <DisplayPostsList allBlogs={allBlogs} />
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import DisplayPostList from 'features/routes/work/components/displayPostsList'
+import { getWorkPosts } from '../../features/routes/work/utils/utils';
 
 export const metadata = {
   title: '制作物一覧 -木乃宮 ダイ-',
@@ -6,9 +7,10 @@ export const metadata = {
 }
 
 export default function Page() {
+  const allWorks = getWorkPosts();
   return (
     <section>
-      <DisplayPostList />
+      <DisplayPostList allWorks={allWorks} />
     </section>
   )
 }

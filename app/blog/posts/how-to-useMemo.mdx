@@ -1,0 +1,29 @@
+---
+title: 'useMemoの使い方ついてメモ'
+publishedAt: '2025-11-25'
+summary: 'useMemoの使い方をあまり理解していなかったのでメモ'
+image: '/images/blog/cool_dragon04.png'
+---
+# useMemoの使い方
+
+useMemoとは？
+
+React の フック の一つで、計算コストの高い処理を 不要な再計算から守るために結果をキャッシュ するために使用する。
+
+```
+const sortedBlogs = useMemo(() => {
+  return [...allBlogs].sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  );
+}, [allBlogs]);
+```
+
+などのようにして使う。
+
+`const data = () = {}`の
+`() = {}`部分をuseMemo()で囲むイメージ。
+
+useMemo（メモ化）の利点は、allBlogsの値が変わらなければキャッシュしたsortedBlogsの計算結果をそのまま返すようにしてくれるので計算処理分軽くなる。
+
+ただ、メモリの容量を使う面もあるので乱用は禁物の模様。

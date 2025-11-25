@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'components/mdx'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
+import { formatDate, getBlogPosts } from 'features/routes/blog/utils/utils'
 import { baseUrl } from 'app/sitemap'
 import { FaRegClock } from 'react-icons/fa'
 import DisplayPosts from 'features/routes/blog/components/displayPosts'
@@ -57,7 +57,8 @@ export async function generateMetadata({ params }) {
 
 export default async function Blog({ params }) {
   const syncParams = await params;
-  let post = getBlogPosts().find((post) => post.slug === syncParams.slug)
+  const allBlogs = getBlogPosts();
+  let post = allBlogs.find((post) => post.slug === syncParams.slug)
 
   if (!post) {
     notFound()
@@ -106,7 +107,7 @@ export default async function Blog({ params }) {
           <CustomMDX source={post.content} />
         </article>
       </div>
-      <DisplayPosts />
+      <DisplayPosts allBlogs={allBlogs} />
     </section>
   )
 }
