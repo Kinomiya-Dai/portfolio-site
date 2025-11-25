@@ -1,12 +1,12 @@
 import { BlogPosts } from 'app/feature/blog/components/posts'
 import { FaGithub } from "react-icons/fa";
 import { SiZenn } from "react-icons/si";
-import Mylogo from '../app/components/icons/undraw-man-light'
+import Mylogo from '../components/icons/undraw-man-light'
 import { cx } from './utils/classnames';
-import { UndrawDevAvatarIcon } from './components/icons';
+import { UndrawDevAvatarIcon } from '../components/icons';
 
 import Link from 'next/link';
-import SkillList from './components/skillList';
+import SkillList from '../components/skillList';
 import { WorkPosts } from './feature/work/components/posts';
 
 export default function Page() {
