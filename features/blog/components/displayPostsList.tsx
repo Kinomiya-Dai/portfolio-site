@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate';
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { UndrawBlogReport } from "components/icons";
+import { UndrawBlogReport } from "features/components/icons";
 
 type BlogListProps = {
   allBlogs: AllBlogs[]

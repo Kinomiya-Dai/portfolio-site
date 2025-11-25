@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate';
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { UndrawBlogReport, UndrawProductDemo } from "components/icons";
+import { UndrawBlogReport, UndrawProductDemo } from "features/components/icons";
 
 type WorkListProps = {
   allWorks: AllWorks[]
