@@ -1,0 +1,37 @@
+---
+title: 'jsのSortについてメモ'
+publishedAt: '2025-11-25'
+summary: 'jsのソートの仕方を覚えるためのメモ'
+image: '/images/blog/cool_dragon04.png'
+---
+
+時間で配列をソートした際のサンプル
+
+```
+return [...sortData].sort(
+  (a, b) =>
+    new Date(b.metadata.publishedAt).getTime() -
+    new Date(a.metadata.publishedAt).getTime()
+);
+```
+
+※sortは元配列を操作するため、[...sortData]スプレッド構文を用いて、元配列が操作されることを防ぐ。
+
+最小構成にすると
+
+降順
+```
+//降順
+[...sortData].sort(
+  (a, b) =>
+    a.number - b.number
+);
+```
+昇順
+```
+//昇順
+[...sortData].sort(
+  (a, b) =>
+    b.number - a.number
+);
+```
