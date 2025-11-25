@@ -1,4 +1,4 @@
-import { UndrawBlogReport, UndrawCodeThinking, UndrawCommunication, UndrawDrinkCoffee, UndrawHello, UndrawHomeCinema, UndrawInTheZone, UndrawProfessor, UndrawStrategy } from "app/components/icons";
+import { UndrawBlogReport, UndrawCodeThinking, UndrawCommunication, UndrawDrinkCoffee, UndrawHello, UndrawHomeCinema, UndrawInTheZone, UndrawProfessor, UndrawStrategy } from "components/icons";
 
 export default function Page() {
   return (

@@ -5,7 +5,7 @@ import Link from "next/link"
 import dynamic from "next/dynamic";
 import { FaReact } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
-import Loading from "app/components/loading";
+import Loading from "components/loading";
 
 // ssr: false でサーバーではレンダリングされない
 const Splide = dynamic(() => import("@splidejs/react-splide").then(mod => mod.Splide), {

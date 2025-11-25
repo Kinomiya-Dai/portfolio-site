@@ -4,7 +4,7 @@ import Link from "next/link"
 
 import dynamic from "next/dynamic";
 import React from "react";
-import Loading from "app/components/loading";
+import Loading from "components/loading";
 
 // ssr: false でサーバーではレンダリングされない
 const Splide = dynamic(() => import("@splidejs/react-splide").then(mod => mod.Splide), {
