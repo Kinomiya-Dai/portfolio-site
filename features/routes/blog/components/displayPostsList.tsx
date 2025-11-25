@@ -6,34 +6,16 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { UndrawBlogReport } from "components/icons";
+import { useCurrentItems } from "./hooks/useCurrentItems";
+import { useWorkPosts } from "features/routes/work/hooks/useWorkPosts";
+import { usePagination } from "./hooks/usePagination";
 
-type BlogListProps = {
-  allBlogs: AllBlogs[]
-}
+const itemsPerPage = 20;
 
-type AllBlogs = {
-  metadata: Metadata;
-  slug: string;
-  content: string;
-}
-
-type Metadata = {
-  title: string
-  publishedAt: string
-  summary: string
-  image?: string
-}
-
-const DisplayPostsList = ({ allBlogs }: BlogListProps) => {
-  const itemsPerPage = 20
-  const [currentPage, setCurrentPage] = useState(0)
-
-  const handlePageChange = (event: { selected: number }) => {
-    setCurrentPage(event.selected)
-  }
-
-  const start = currentPage * itemsPerPage
-  const currentItems = allBlogs.slice(start, start + itemsPerPage)
+const DisplayPostsList = () => {
+  const { currentPage, handlePageChange, startIndex } = usePagination(itemsPerPage)
+  const { allWorks, sortedWorks } = useWorkPosts();
+  const currentItems = useCurrentItems(sortedWorks, startIndex, itemsPerPage);
   return (
     <div className="min-w-full flex flex-col items-center justify-center">
       <h1 className="font-bold text-2xl my-8 tracking-normal">Blog List</h1>
@@ -50,11 +32,6 @@ const DisplayPostsList = ({ allBlogs }: BlogListProps) => {
             className="w-6xl grid grid-cols-4 gap-8"
           >
             {currentItems
-              .sort(
-                (a, b) =>
-                  new Date(b.metadata.publishedAt).getTime() -
-                  new Date(a.metadata.publishedAt).getTime()
-              )
               .map((post) => (
                 <Link
                   className="flex flex-col space-y-1 mb-4"
@@ -83,7 +60,7 @@ const DisplayPostsList = ({ allBlogs }: BlogListProps) => {
         </AnimatePresence>
       </div>
       <ReactPaginate
-        pageCount={Math.ceil(allBlogs.length / itemsPerPage)}
+        pageCount={Math.ceil(sortedWorks.length / itemsPerPage)}
         onPageChange={handlePageChange}
         marginPagesDisplayed={2} //先頭と末尾に表示するページの数。今回は2としたので1,2…今いるページの前後…後ろから2番目, 1番目 のように表示されます。
         pageRangeDisplayed={5} //上記の「今いるページの前後」の番号をいくつ表示させるかを決めます。

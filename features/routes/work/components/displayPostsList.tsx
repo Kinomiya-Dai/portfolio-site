@@ -2,38 +2,20 @@
 
 import Link from "next/link"
 import ReactPaginate from 'react-paginate';
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { UndrawBlogReport, UndrawProductDemo } from "components/icons";
+import { UndrawProductDemo } from "components/icons";
+import { usePagination } from "../hooks/usePagination";
+import { useWorkPosts } from "../hooks/useWorkPosts";
+import { useCurrentItems } from "../hooks/useCurrentItems";
 
-type WorkListProps = {
-  allWorks: AllWorks[]
-}
+const itemsPerPage = 20
 
-type AllWorks = {
-  metadata: Metadata;
-  slug: string;
-  content: string;
-}
+const DisplayPostsList = () => {
+  const { currentPage, handlePageChange, startIndex } = usePagination(itemsPerPage)
+  const { allWorks, sortedWorks } = useWorkPosts();
+  const currentItems = useCurrentItems(sortedWorks, startIndex, itemsPerPage);
 
-type Metadata = {
-  title: string
-  publishedAt: string
-  summary: string
-  image?: string
-}
-
-const DisplayPostsList = ({ allWorks }: WorkListProps) => {
-  const itemsPerPage = 20
-  const [currentPage, setCurrentPage] = useState(0)
-
-  const handlePageChange = (event: { selected: number }) => {
-    setCurrentPage(event.selected)
-  }
-
-  const start = currentPage * itemsPerPage
-  const currentItems = allWorks.slice(start, start + itemsPerPage)
   return (
     <div className="min-w-full flex flex-col items-center justify-center">
       <h1 className="font-bold text-2xl my-8 tracking-normal">Work List</h1>
@@ -55,11 +37,6 @@ const DisplayPostsList = ({ allWorks }: WorkListProps) => {
             className="w-6xl grid grid-cols-4 gap-8"
           >
             {currentItems
-              .sort(
-                (a, b) =>
-                  new Date(b.metadata.publishedAt).getTime() -
-                  new Date(a.metadata.publishedAt).getTime()
-              )
               .map((post) => (
                 <Link
                   className="flex flex-col space-y-1 mb-4"

@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { FaReact } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
 import Loading from "components/loading";
+import { useWorkPosts } from "../hooks/useWorkPosts";
 
 // ssr: false でサーバーではレンダリングされない
 const Splide = dynamic(() => import("@splidejs/react-splide").then(mod => mod.Splide), {
@@ -18,25 +19,8 @@ const SplideSlide = dynamic(
   { ssr: false }
 );
 
-type WorkListProps = {
-  allWorks: AllWorks[]
-}
-
-type AllWorks = {
-  metadata: Metadata;
-  slug: string;
-  content: string;
-}
-
-type Metadata = {
-  num: string
-  title: string
-  publishedAt: string
-  summary: string
-  image?: string
-}
-
-const DisplayPosts = ({ allWorks }: WorkListProps) => {
+const DisplayPosts = () => {
+  const { allWorks } = useWorkPosts()
   return (
     <div className="min-w-full h-full flex justify-center overflow-x-hidden overflow-y-visible py-8">
       <div className="max-w-6xl h-full">
@@ -58,11 +42,6 @@ const DisplayPosts = ({ allWorks }: WorkListProps) => {
           }}
         >
           {allWorks
-            .sort(
-              (a, b) =>
-                new Date(b.metadata.publishedAt).getTime() -
-                new Date(a.metadata.publishedAt).getTime()
-            )
             .map((post) => (
               <SplideSlide key={post.slug}>
                 <Link

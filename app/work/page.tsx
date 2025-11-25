@@ -1,4 +1,4 @@
-import { WorkPostsList } from 'features/routes/work/components/postsList'
+import DisplayPostList from 'features/routes/work/components/displayPostsList'
 
 export const metadata = {
   title: '制作物一覧 -木乃宮 ダイ-',
@@ -8,7 +8,7 @@ export const metadata = {
 export default function Page() {
   return (
     <section>
-      <WorkPostsList />
+      <DisplayPostList />
     </section>
   )
 }

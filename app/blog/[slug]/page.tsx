@@ -3,7 +3,7 @@ import { CustomMDX } from 'components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 import { FaRegClock } from 'react-icons/fa'
-import { BlogPosts } from 'features/routes/blog/components/posts'
+import DisplayPosts from 'features/routes/blog/components/displayPosts'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -15,6 +15,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const syncParams = await params;
+
   let post = getBlogPosts().find((post) => post.slug === syncParams.slug)
   if (!post) {
     return
@@ -105,7 +106,7 @@ export default async function Blog({ params }) {
           <CustomMDX source={post.content} />
         </article>
       </div>
-      <BlogPosts />
+      <DisplayPosts />
     </section>
   )
 }

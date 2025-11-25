@@ -1,4 +1,4 @@
-import { BlogPostsList } from 'features/routes/blog/components/postsList'
+import DisplayPostsList from 'features/routes/blog/components/displayPostsList'
 
 export const metadata = {
   title: 'ブログ一覧 -木乃宮 ダイ-',
@@ -8,7 +8,7 @@ export const metadata = {
 export default function Page() {
   return (
     <section>
-      <BlogPostsList />
+      <DisplayPostsList />
     </section>
   )
 }

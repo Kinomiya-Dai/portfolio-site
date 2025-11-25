@@ -5,6 +5,7 @@ import Link from "next/link"
 import dynamic from "next/dynamic";
 import React from "react";
 import Loading from "components/loading";
+import { useBlogPosts } from "./hooks/useWorkPosts";
 
 // ssr: false でサーバーではレンダリングされない
 const Splide = dynamic(() => import("@splidejs/react-splide").then(mod => mod.Splide), {
@@ -17,24 +18,9 @@ const SplideSlide = dynamic(
   { ssr: false }
 );
 
-type BlogListProps = {
-  allBlogs: AllBlogs[]
-}
 
-type AllBlogs = {
-  metadata: Metadata;
-  slug: string;
-  content: string;
-}
-
-type Metadata = {
-  title: string
-  publishedAt: string
-  summary: string
-  image?: string
-}
-
-const DisplayPosts = ({ allBlogs }: BlogListProps) => {
+const DisplayPosts = () => {
+  const { allBlogs } = useBlogPosts()
   return (
     <div className="min-w-full h-[418px] flex justify-center overflow-x-hidden overflow-y-visible py-8">
       <div className="max-w-6xl">
@@ -63,11 +49,6 @@ const DisplayPosts = ({ allBlogs }: BlogListProps) => {
           }}
         >
           {allBlogs
-            .sort(
-              (a, b) =>
-                new Date(b.metadata.publishedAt).getTime() -
-                new Date(a.metadata.publishedAt).getTime()
-            )
             .map((post) => (
               <SplideSlide key={post.slug}>
                 <Link
