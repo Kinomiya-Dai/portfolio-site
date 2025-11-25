@@ -1,5 +1,5 @@
-import { getBlogPosts } from 'app/blog/utils'
-import { getWorkPosts } from 'app/work/utils'
+import { getBlogPosts } from 'features/routes/blog/utils/utils'
+import { getWorkPosts } from 'features/routes/work/utils/utils'
 
 // export const baseUrl = 'https://portfolio-blog-starter.vercel.app'
 export const baseUrl = 'http://localhost:3000'
@@ -15,7 +15,7 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }))
 
-  let routes = ['', '/blog','/work'].map((route) => ({
+  let routes = ['', '/blog', '/work'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))

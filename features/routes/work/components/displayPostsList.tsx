@@ -6,15 +6,31 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { UndrawProductDemo } from "components/icons";
 import { usePagination } from "../hooks/usePagination";
-import { useWorkPosts } from "../hooks/useWorkPosts";
 import { useCurrentItems } from "../hooks/useCurrentItems";
 
 const itemsPerPage = 20
 
-const DisplayPostsList = () => {
+type WorkListProps = {
+  allWorks: AllWorks[]
+}
+
+type AllWorks = {
+  metadata: Metadata;
+  slug: string;
+  content: string;
+}
+
+type Metadata = {
+  num: string
+  title: string
+  publishedAt: string
+  summary: string
+  image?: string
+}
+
+const DisplayPostsList = ({ allWorks }: WorkListProps) => {
   const { currentPage, handlePageChange, startIndex } = usePagination(itemsPerPage)
-  const { allWorks, sortedWorks } = useWorkPosts();
-  const currentItems = useCurrentItems(sortedWorks, startIndex, itemsPerPage);
+  const currentItems = useCurrentItems(allWorks, startIndex, itemsPerPage);
 
   return (
     <div className="min-w-full flex flex-col items-center justify-center">
