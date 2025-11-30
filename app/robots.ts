@@ -1,6 +1,6 @@
 import { baseUrl } from 'app/sitemap'
 
-export const dynamic = "force-static";  // これを追加
+export const dynamic = "force-static"; 
 
 export default function robots() {
   return {
