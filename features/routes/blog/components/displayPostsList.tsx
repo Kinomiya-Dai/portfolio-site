@@ -54,7 +54,7 @@ const DisplayPostsList = ({ allBlogs }: BlogListProps) => {
                 >
                   <article className="rounded-[5px] overflow-hidden  shadow-xl/30 shadow-pf-text transition-transform hover:-translate-y-4 duration-500">
                     <div className="h-40">
-                      <img className="w-full h-full" src="/images/blog/cool_dragon04.png" alt="" />
+                      <img className="w-full h-full" src="/images/blog/cool_dragon04.jpg" alt="" />
                     </div>
                     <div className="relative h-40 flex flex-col md:flex-row space-x-0 px-4 py-3 text-pf-text bg-pf-bg">
                       <div className="flex flex-col">
