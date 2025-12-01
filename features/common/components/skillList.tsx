@@ -4,9 +4,9 @@ import { VscCode } from "react-icons/vsc";
 import { FaAws, FaCss3Alt, FaDatabase, FaDocker, FaGitAlt, FaGithub, FaHtml5, FaJava, FaJs, FaPython, FaReact } from "react-icons/fa";
 import { SiFastapi, SiNextdotjs, SiPhp, SiSpring, SiTypescript } from "react-icons/si";
 
-import IpaLogo from "./icons/ipa-logo"
-import { CpdaLogo } from './icons';
-import { UndrawCodeThinking } from './icons';
+import IpaLogo from "./svgs/icons/ipa-logo"
+import { CpdaLogo } from './svgs/icons';
+import { UndrawCodeThinking } from "./svgs";
 import SkillCard from './skillcard'
 import dynamic from "next/dynamic";
 
