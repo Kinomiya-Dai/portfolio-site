@@ -1,4 +1,5 @@
 "use client"
+import clsx from "clsx";
 import React, { ReactElement, useRef } from "react";
 
 type Skill = {
@@ -11,11 +12,12 @@ type Skill = {
 
 type Props = {
   skills: Skill[];
+  className?: string;
 };
 
 
 
-const SkillCard: React.FC<Props> = ({ skills }) => {
+const SkillCard: React.FC<Props> = ({ skills, className }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const onWheel = (e: React.WheelEvent) => {
@@ -24,7 +26,7 @@ const SkillCard: React.FC<Props> = ({ skills }) => {
     }
   };
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <div className={clsx("grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4", `${className}`)}>
       {skills.map((skill, index) => (
         <div
           key={index}
@@ -38,8 +40,9 @@ const SkillCard: React.FC<Props> = ({ skills }) => {
               : skill.icon}
           </div>
           <div
+            ref={scrollRef}
             onWheel={onWheel}
-            className="w-full overflow-x-auto snap-x pointer-events-none scroll-auto scrollbar-none">
+            className="w-full overflow-x-auto snap-x scrollbar-none scroll-smooth">
             <p className="text-lg text-center font-semibold whitespace-nowrap snap-start">{skill.name}</p>
           </div>
         </div>

@@ -45,7 +45,7 @@ const DisplayWorkPostsList = ({ allWorks }: WorkListProps) => {
             rewind: true,
           }}
         >
-          {allWorks && allWorks.length > 0 ? (
+          {(allWorks && allWorks.length > 0) && (
             allWorks.map((post) => (
               <SplideSlide key={post.slug}>
                 <Link
@@ -63,9 +63,11 @@ const DisplayWorkPostsList = ({ allWorks }: WorkListProps) => {
                       </div>
                       <div className="absolute -top-12 -left-12 px-18 py-18 z-30 w-0 h-0 group-hover:h-[calc(100%-8px)] group-hover:w-[calc(100%+48px)] bg-black/70 rounded-[30px] transition-all duration-1000 ease-in-out overflow-hidden">
                         <div className="absolute bottom-0 right-0 w-24 h-24 flex items-center justify-center"><span className="text-pf-bg text-4xl">{post.metadata.num}</span></div>
-                        <h3 className="text-pf-bg text-3xl font-black transition-all opacity-0 duration-1000 ease-in-out overflow-hidden whitespace-nowrap group-hover:opacity-100">{post.metadata.title}</h3>
-                        <div className="min-w-full">
-                          <p className="text-pf-bg font-medium transition-all opacity-0 mt-4 duration-1000 ease-in-out overflow-hidden group-hover:opacity-100 line-clamp-2">{post.metadata.summary}</p>
+                        <div className="flex flex-col justify-end h-full">
+                          <h3 className="text-pf-bg text-3xl font-black transition-all opacity-0 duration-1000 ease-in-out overflow-hidden whitespace-nowrap group-hover:opacity-100">{post.metadata.title}</h3>
+                          <div className="min-w-full">
+                            <p className="text-pf-bg font-medium transition-all opacity-0 mt-4 duration-1000 ease-in-out overflow-hidden group-hover:opacity-100 line-clamp-2">{post.metadata.summary}</p>
+                          </div>
                         </div>
                       </div>
                       <img className="w-full h-auto top-0 left-0 object-cover z-10" src={post.metadata.image} alt="" />
@@ -73,9 +75,7 @@ const DisplayWorkPostsList = ({ allWorks }: WorkListProps) => {
                   </article>
                 </Link>
               </SplideSlide>
-            ))) : (
-            <Loading />
-          )
+            )))
           }
         </Splide>
       </div>

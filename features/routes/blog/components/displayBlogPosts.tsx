@@ -52,7 +52,7 @@ const DisplayBlogPosts = ({ allBlogs }: BlogListProps) => {
             },
           }}
         >
-          {allBlogs && allBlogs.length > 0 ? (
+          {(allBlogs && allBlogs.length > 0) && (
             allBlogs.map((post) => (
               <SplideSlide key={post.slug}>
                 <Link
@@ -84,7 +84,7 @@ const DisplayBlogPosts = ({ allBlogs }: BlogListProps) => {
                   </article>
                 </Link>
               </SplideSlide>
-            ))) : (<Loading />)
+            )))
           }
         </Splide>
       </div>

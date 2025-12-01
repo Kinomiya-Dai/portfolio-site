@@ -184,6 +184,12 @@ html {
   display: none;
 }
 
+@media (max-width: 768px) {
+  .splide__arrows {
+    display: none;
+  }
+}
+
 /*********************************
 
   @react-paginate
