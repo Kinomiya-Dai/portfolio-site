@@ -4,10 +4,10 @@ import { VscCode } from "react-icons/vsc";
 import { FaAws, FaCss3Alt, FaDatabase, FaDocker, FaGitAlt, FaGithub, FaHtml5, FaJava, FaJs, FaPython, FaReact } from "react-icons/fa";
 import { SiFastapi, SiNextdotjs, SiPhp, SiSpring, SiTypescript } from "react-icons/si";
 
-import IpaLogo from "./svgs/icons/ipa-logo"
-import { CpdaLogo } from './svgs/icons';
-import { UndrawCodeThinking } from "./svgs";
-import SkillCard from './skillcard'
+import { IpaLogo } from "features/common/components/svgs/icons";
+import { CpdaLogo } from "features/common/components/svgs/icons";
+import { UndrawCodeThinking } from "features/common/components/svgs";
+import SkillCard from "features/common/components/skillcard";
 import dynamic from "next/dynamic";
 
 const PiFigmaLogoFill = dynamic(
@@ -51,40 +51,44 @@ const certifications = [
   { name: "エンジニア認定データ分析実践", icon: <CpdaLogo />, exp: false },
 ];
 
-const SkillList = () => {
+
+export function DisplaySkill() {
   return (
-    <div className='w-4xl'>
-      <h2 className='text-center text-4xl font-bold mb-24'>Skill-Stacks</h2>
-      <section className='pb-32'>
-        <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
-          <VscCode className='w-6 h6 mr-2' />
-          Language
-          <UndrawCodeThinking className='w-32 h-14 position absolute bottom-1/2 right-0 ' />
-        </h3>
-        <SkillCard skills={languages} />
+    <>
+      <section className='py-14 flex flex-col items-center gap-14'>
+        <div className='w-full px-4 pc:w-4xl'>
+          <h2 className='text-center text-4xl font-bold mb-24'>Skill-Stacks</h2>
+          <section className='pb-32'>
+            <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
+              <VscCode className='w-6 h6 mr-2' />
+              Language
+              <UndrawCodeThinking className='w-32 h-14 position absolute bottom-1/2 right-0 ' />
+            </h3>
+            <SkillCard skills={languages} />
+          </section>
+          <section className='pb-32'>
+            <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
+              <VscCode className='w-6 h6 mr-2' />
+              Frameworks & Libraries
+            </h3>
+            <SkillCard skills={frameworks} />
+          </section>
+          <section className='pb-32'>
+            <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
+              <VscCode className='w-6 h6 mr-2' />
+              Tools & Technologies
+            </h3>
+            <SkillCard skills={tools} />
+          </section>
+          <section className='pb-32'>
+            <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
+              <VscCode className='w-6 h6 mr-2' />
+              Certifications
+            </h3>
+            <SkillCard skills={certifications} />
+          </section>
+        </div>
       </section>
-      <section className='pb-32'>
-        <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
-          <VscCode className='w-6 h6 mr-2' />
-          Frameworks & Libraries
-        </h3>
-        <SkillCard skills={frameworks} />
-      </section>
-      <section className='pb-32'>
-        <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
-          <VscCode className='w-6 h6 mr-2' />
-          Tools & Technologies
-        </h3>
-        <SkillCard skills={tools} />
-      </section>
-      <section className='pb-32'>
-        <h3 className='flex relative items-center mb-12 text-2xl font-bold pl-4 text-before-line text-after-line'>
-          <VscCode className='w-6 h6 mr-2' />
-          Certifications
-        </h3>
-        <SkillCard skills={certifications} />
-      </section>
-    </div>
+    </>
   )
 }
-export default SkillList

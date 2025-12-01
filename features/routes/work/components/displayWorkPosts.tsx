@@ -28,10 +28,9 @@ type Metadata = {
 
 const DisplayWorkPostsList = ({ allWorks }: WorkListProps) => {
   return (
-    <div className="w-full h-full flex justify-center overflow-x-hidden overflow-y-visible py-8">
-      <div className="w-full pc:max-w-6xl h-full">
+    <div className="w-full flex justify-center overflow-hidden">
+      <div className="flex justify-center overflow-x-visible overflow-y-visible py-8 w-3/5">
         <Splide
-          className="w-full pc:h-[440px] pc:w-[820px] splide-work"
           aria-label="works-list"
           options={{
             mediaQuery: 'min',
@@ -44,17 +43,16 @@ const DisplayWorkPostsList = ({ allWorks }: WorkListProps) => {
             gap: "1rem",
             perPage: 1,
             rewind: true,
-
           }}
         >
           {allWorks && allWorks.length > 0 ? (
             allWorks.map((post) => (
               <SplideSlide key={post.slug}>
                 <Link
-                  className="h-[424px] flex flex-col mb-4"
+                  className="flex flex-col mb-4"
                   href={`/work/${post.slug}`}
                 >
-                  <article className="w-full h-full shadow-xl/30 shadow-pf-text group z-0">
+                  <article className="w-full shadow-xl/30 shadow-pf-text group z-0">
                     <div className="w-full h-full relative overflow-hidden rounded-2 box-border">
                       <div className="absolute bottom-0 left-0 z-20 h-14 border-pf-works-line w-full bg-pf-works-line px-6 flex items-center justify-between">
                         <div className="flex items-center gap-3 h-full">
@@ -70,7 +68,7 @@ const DisplayWorkPostsList = ({ allWorks }: WorkListProps) => {
                           <p className="text-pf-bg font-medium transition-all opacity-0 mt-4 duration-1000 ease-in-out overflow-hidden group-hover:opacity-100 line-clamp-2">{post.metadata.summary}</p>
                         </div>
                       </div>
-                      <img className="w-full h-full absolute top-0 left-0 object-cover z-10" src={post.metadata.image} alt="" />
+                      <img className="w-full h-auto top-0 left-0 object-cover z-10" src={post.metadata.image} alt="" />
                     </div>
                   </article>
                 </Link>

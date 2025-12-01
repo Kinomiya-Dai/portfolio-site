@@ -26,22 +26,21 @@ type Metadata = {
 
 const DisplayBlogPosts = ({ allBlogs }: BlogListProps) => {
   return (
-    <div className="min-w-full h-[418px] flex justify-center overflow-x-hidden overflow-y-visible py-8
-                    pc:py-8
-                    ">
-      <div className="w-full px-12 pc:max-w-6xl">
+    <div className="w-full flex justify-center overflow-hidden">
+      <div className="overflow-x-visible overflow-y-visible py-8 w-4/5">
         <Splide
           aria-label="blogs-list"
           options={{
             mediaQuery: 'min',
             perMove: 1,
-            type: 'loop',
             autoplay: true,
             interval: 4000,
             speed: 1000,
             pauseOnFocus: false,
+            type: "loop",
             gap: "1rem",
             perPage: 1,
+            rewind: true,
             breakpoints: {
               768: {
                 perPage: 2,
@@ -61,14 +60,14 @@ const DisplayBlogPosts = ({ allBlogs }: BlogListProps) => {
                   href={`/blog/${post.slug}`}
                 >
                   <article className="rounded-[5px] overflow-hidden shadow-xl/30 shadow-pf-text">
-                    <div className="h-40">
-                      <img className="w-full h-full"
-                        src={`${post.metadata.image}`}
+                    <div>
+                      <img className="w-full h-50 object-cover"
+                        src={post.metadata.image ? post.metadata.image : "/images/svg/no-image.svg"}
                         alt={`${post.metadata.summary}のブログ画像`} />
                     </div>
-                    <div className="relative h-40 flex flex-col md:flex-row space-x-0 px-4 py-3 text-pf-text bg-pf-bg">
+                    <div className="relative h-40 flex flex-col md:flex-row space-x-0 px-4 py-3 text-pf-text dark:text-pf-text bg-pf-bg">
                       <div className="flex flex-col">
-                        <p className="font-bold dark:text-neutral-100 tracking-tight mb-2 line-clamp-2">
+                        <p className="font-bold tracking-tight mb-2 line-clamp-2">
                           {post.metadata.title}
                         </p>
                         <p className="text-[12px] line-clamp-3">{post.metadata.summary.split('<br>').map((line, i) => (

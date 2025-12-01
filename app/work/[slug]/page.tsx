@@ -88,7 +88,7 @@ export default async function Work({ params }) {
           }),
         }}
       />
-      <div className='max-w-5xl m-auto pt-8 pb-12'>
+      <div className='w-full px-6 sp:w-4/5 sp:px-0 pc:max-w-5xl m-auto pt-8 pb-12'>
 
         <h1 className="title font-extrabold text-2xl tracking-tighter pb-2">
           {post.metadata.title}

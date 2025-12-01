@@ -40,7 +40,7 @@
   /* dark設定 */
   --color-pf-text-dark: #CACACA;
   --color-pf-bg-dark: #090814;
-  --color-pf-ui-border-dark: #474747;
+  --color-pf-ui-border-dark: #272727;
   --color-pf-highlight-bg-dark: #0c0c0c;
 
   /* responsive 独自ブレークポイント */
@@ -182,13 +182,6 @@ html {
 
 .splide__pagination {
   display: none;
-}
-
-.splide-work .splide__arrow--prev {
-  left: -6em;
-}
-.splide-work .splide__arrow--next {
-  right: -6em;
 }
 
 /*********************************

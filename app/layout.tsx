@@ -1,7 +1,7 @@
 import '@splidejs/react-splide/css'
 import './global.css'
 import type { Metadata } from 'next'
-import { Navbar } from '../features/common/components/nav'
+import { Navbar } from '../features/common/components/header'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import Footer from '../features/common/components/footer'

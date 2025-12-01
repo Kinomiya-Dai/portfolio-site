@@ -31,9 +31,9 @@ export function DisplayMv() {
             </div>
             <p className='mb-3'>Webアプリの設計と実装に取り組んでいます。<br />使いやすさと拡張性を意識した開発。<br />チームとのコミュニケーションを大切にし、<br />円滑に協力し合える環境づくりを心がけています。</p>
             <div className='flex gap-6'>
-              <Link href="https://github.com/Kinomiya-Dai">
+              <a href="https://github.com/Kinomiya-Dai" target="_blank" rel="noopener noreferrer">
                 <FaGithub className='w-8 h-8 cursor-pointer' />
-              </Link>
+              </a>
               <SiZenn className='w-8 h-8 cursor-pointer' />
             </div>
           </div>

@@ -10,9 +10,7 @@ export function DisplayWork() {
     <>
       <section className='py-14 flex flex-col items-center gap-14 mb-16'>
         <h2 className='text-4xl font-bold mb-10'>Works</h2>
-        <div className='h-[506px] w-full'>
-          <DisplayWorks allWorks={works} />
-        </div>
+        <DisplayWorks allWorks={works} />
         <div className='flex'>
           <Link href="./work">
             <p className='text-2xl font-light border-b cursor-pointer'>View All Works</p>
