@@ -9,13 +9,13 @@ export function DisplayAbout() {
         <h2 className='text-3xl font-semibold
                        pc:text-4xl pc:font-bold'>About me</h2>
         <div className='flex flex-col justify-center gap-6
-                        pc:flex-row pc:gap-[7px]'>
+                        tab:flex-row tab:gap-[7px]'>
           <div className="w-full flex justify-center
-                          pc:block pc:w-auto">
+                          tab:block tab:w-auto">
             <UndrawDevAvatarIcon className='w-[150px] h-[150px]' />
           </div>
-          <div className='pc:w-3/5 pc:flex pc:flex-col'>
-            <div className='mb-12 pc:mb-8'>
+          <div className='pc:w-3/5 tab:flex tab:flex-col'>
+            <div className='mb-12 tab:w-[468px] pc:w-auto pc:mb-8'>
               <p className='mb-4'>はじめまして。平成11年生まれ26歳エンジニアのダイと申します。<br />
                 社会人歴（IT業界）2年目となりました。
               </p>
@@ -32,10 +32,10 @@ export function DisplayAbout() {
                               shadow-2xl rounded-full
                               font-bold leading-normal tracking-widest
                               px-8 py-6 ml-auto
-                              text-pf-text dark:text-pf-text-dark
+                              text-pf-text dark:text-pf-text-dark bg-pf-bg dark:bg-pf-bg-dark
                               transition-transform duration-300 ease-in-out
-                              hover:scale-105 hover:shadow-xl
-                              active:scale-95 active:shadow-xl
+                              hover:scale-105 hover:shadow-xl dark:shadow-pf-text-dark/20 dark:border dark:border-pf-text-dark/10
+                              active:scale-95 active:shadow-xl dark:active:shadow-2xl dark:active:border-2
                             "
                 >
                   view more

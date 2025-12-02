@@ -1,10 +1,6 @@
 "use client";
-
 import Link from "next/link"
-
 import React from "react";
-import Loading from "features/common/components/loading";
-
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 type BlogListProps = {
@@ -26,7 +22,7 @@ type Metadata = {
 
 const DisplayBlogPosts = ({ allBlogs }: BlogListProps) => {
   return (
-    <div className="w-full flex justify-center overflow-hidden">
+    <div className="flex justify-center overflow-hidden">
       <div className="overflow-x-visible overflow-y-visible py-8 w-4/5">
         <Splide
           aria-label="blogs-list"
@@ -42,12 +38,16 @@ const DisplayBlogPosts = ({ allBlogs }: BlogListProps) => {
             perPage: 1,
             rewind: true,
             breakpoints: {
-              768: {
+              432: {
                 perPage: 2,
+                gap: 10,
               },
-              1025: {
-                perPage: 4,
+              1024: {
+                perPage: 3,
                 gap: 32,
+              },
+              1440: {
+                perPage: 4,
               }
             },
           }}

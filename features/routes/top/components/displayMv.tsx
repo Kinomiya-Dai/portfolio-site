@@ -8,13 +8,12 @@ export function DisplayMv() {
   return (
     <>
       <section className='min-h-screen flex flex-col justify-around z-20'>
-        <div className="
-                        h-full min-h-full px-6 mt-8
+        <div className="h-full min-h-full px-6 mt-8
                         tab:min-w-2xl
-                        pc:flex pc:items-center pc:justify-center
+                        tab:flex tab:items-center tab:justify-center
                         pc:min-w-4xl pc:px-0
         ">
-          <div className="w-full pc:w-auto">
+          <div className="max-w-[420px] m-auto tab:w-auto tab:max-w-none pc:w-auto tab:m-0">
             <p className='mb-2'>はじめまして、私は</p>
             <h1 className='mb-1
                            text-2xl font-semibold
@@ -26,7 +25,7 @@ export function DisplayMv() {
                           mb-8
                           pc:text-2xl
                          '>Front / Back end Engineer</p>
-            <div className="pc:hidden mb-8 w-full">
+            <div className="tab:hidden mb-8 w-full">
               <Mylogo className="w-full" />
             </div>
             <p className='mb-3'>Webアプリの設計と実装に取り組んでいます。<br />使いやすさと拡張性を意識した開発。<br />チームとのコミュニケーションを大切にし、<br />円滑に協力し合える環境づくりを心がけています。</p>
@@ -36,7 +35,7 @@ export function DisplayMv() {
               </a>
             </div>
           </div>
-          <div className="hidden pc:block">
+          <div className="hidden tab:block">
             <Mylogo />
           </div>
         </div>
