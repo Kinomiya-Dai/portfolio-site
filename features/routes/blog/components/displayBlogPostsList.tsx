@@ -35,7 +35,7 @@ const DisplayBlogPostsList = ({ allBlogs }: BlogListProps) => {
       <h1 className="font-bold text-2xl my-8 tracking-normal">Blog List</h1>
       <UndrawBlogReport className="w-80 h-80 mb-4" />
       <p className="mb-14">技術ブログチックに開発経験のナレッジを蓄積しています。</p>
-      <div className="w-6xl grid grid-cols-4 gap-8 transition-all duration-500">
+      <div>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPage} // currentPage が変わると再レンダリングしてアニメーション
@@ -43,35 +43,37 @@ const DisplayBlogPostsList = ({ allBlogs }: BlogListProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 0 }}
             transition={{ duration: 0.2 }}
-            className="w-6xl grid grid-cols-4 gap-8"
           >
-            {currentItems
-              .map((post) => (
-                <Link
-                  className="flex flex-col space-y-1 mb-4"
-                  href={`/blog/${post.slug}`}
-                  key={post.slug}
-                >
-                  <article className="rounded-[5px] overflow-hidden  shadow-xl/30 shadow-pf-text transition-transform hover:-translate-y-4 duration-500">
-                    <div className="h-40">
-                      <img className="w-full h-50 object-cover"
-                        src={post.metadata.image ? post.metadata.image : "/images/svg/no-image.svg"}
-                        alt={`${post.metadata.summary}のブログ画像`} />
-                    </div>
-                    <div className="relative h-40 flex flex-col md:flex-row space-x-0 px-4 py-3 text-pf-text bg-pf-bg">
-                      <div className="flex flex-col">
-                        <p className="font-bold tracking-tight mb-2 line-clamp-2">
-                          {post.metadata.title}
-                        </p>
-                        <p className="text-[12px] line-clamp-3">{post.metadata.summary}</p>
+            <div className="w-full px-8 px:px-0 pc:w-6xl grid grid-cols-1 sp-work:grid-cols-2 tab:grid-cols-3 pc:grid-cols-4 gap-8 transition-all duration-500">
+              {currentItems
+                .map((post) => (
+                  <Link
+                    className="flex flex-col space-y-1 mb-4"
+                    href={`/blog/${post.slug}`}
+                    key={post.slug}
+                  >
+                    <article className="rounded-[5px] overflow-hidden  shadow-xl/30 shadow-pf-text transition-transform hover:-translate-y-4 duration-500">
+                      <div className="h-40">
+                        <img className="w-full h-50 object-cover"
+                          src={post.metadata.image ? post.metadata.image : "/images/svg/no-image.svg"}
+                          alt={`${post.metadata.summary}のブログ画像`} />
                       </div>
-                      <p className="absolute text-[12px] font-medium bottom-3 right-4 dark:text-neutral-400 tabular-nums">
-                        {post.metadata.publishedAt}
-                      </p>
-                    </div>
-                  </article>
-                </Link>
-              ))}
+                      <div className="relative h-40 flex flex-col md:flex-row space-x-0 px-4 py-3 text-pf-text bg-pf-bg">
+                        <div className="flex flex-col">
+                          <p className="font-bold tracking-tight mb-2 line-clamp-2">
+                            {post.metadata.title}
+                          </p>
+                          <p className="text-[12px] line-clamp-3">{post.metadata.summary}</p>
+                        </div>
+                        <p className="absolute text-[12px] font-medium bottom-3 right-4 dark:text-neutral-400 tabular-nums">
+                          {post.metadata.publishedAt}
+                        </p>
+                      </div>
+                    </article>
+                  </Link>
+
+                ))}
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

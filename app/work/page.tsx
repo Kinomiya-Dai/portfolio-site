@@ -1,6 +1,5 @@
-import DisplayPostList from 'features/routes/work/components/displayWorkPostsList'
+import DisplayWorkPostList from 'features/routes/work/components/displayWorkPostsList'
 import { getWorkPosts } from '../../features/routes/work/utils/utils';
-import { PgIconsBg } from 'features/common/components/pgIconsBg';
 
 export const metadata = {
   title: '制作物一覧 -木乃宮 ダイ-',
@@ -12,7 +11,7 @@ export default function Page() {
   return (
     <>
       <section className='z-20'>
-        <DisplayPostList allWorks={allWorks} />
+        <DisplayWorkPostList allWorks={allWorks} />
       </section>
     </>
 

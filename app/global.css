@@ -49,6 +49,9 @@
   --breakpoint-tab: 768px; /* tablet */
   --breakpoint-pc: 1024px; /* pc */
   --breakpoint-mt: 1440px; /* monitor */
+
+  --breakpoint-sp-work:520px;
+  --breakpoint-sp-blog:520px;
 }
 
 @layer utilities {

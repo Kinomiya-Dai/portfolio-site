@@ -42,16 +42,15 @@ const DisplayPostsList = ({ allWorks }: WorkListProps) => {
           {/* ここに前のページ遷移リンクと、次のページ遷移リンクが入る。 */}
         </div>
       </div>
-      <div className="w-6xl grid grid-cols-4 gap-8 transition-all duration-500">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentPage} // currentPage が変わると再レンダリングしてアニメーション
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="w-6xl grid grid-cols-4 gap-8"
-          >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentPage} // currentPage が変わると再レンダリングしてアニメーション
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <div className="w-full px-8 px:px-0 pc:w-6xl grid grid-cols-1 sp-work:grid-cols-2 tab:grid-cols-3 pc:grid-cols-4 gap-8 transition-all duration-500">
             {currentItems
               .map((post) => (
                 <Link
@@ -77,9 +76,9 @@ const DisplayPostsList = ({ allWorks }: WorkListProps) => {
                   </article>
                 </Link>
               ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
       <ReactPaginate
         pageCount={Math.ceil(allWorks.length / itemsPerPage)}
         onPageChange={handlePageChange}
