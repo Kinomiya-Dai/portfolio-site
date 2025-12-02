@@ -34,7 +34,6 @@ export function DisplayMv() {
               <a href="https://github.com/Kinomiya-Dai" target="_blank" rel="noopener noreferrer">
                 <FaGithub className='w-8 h-8 cursor-pointer' />
               </a>
-              <SiZenn className='w-8 h-8 cursor-pointer' />
             </div>
           </div>
           <div className="hidden pc:block">
