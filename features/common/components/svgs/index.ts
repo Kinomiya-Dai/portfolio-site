@@ -1,4 +1,7 @@
-export { default as Loading } from "../loading";
+export { default as CpdaLogo } from "./cpda-logo";
+export { default as IpaLogo } from "./ipa-logo";
+export { default as Loading } from "./loading";
+export { default as NoImage } from "./no-image";
 export { default as UndrawCodeThinking } from "./undraw-code-thinking";
 export { default as UndrawCommunication } from "./undraw-communication";
 export { default as UndrawDrinkCoffee } from "./undraw-drink-coffee";
@@ -10,4 +13,5 @@ export { default as UndrawBlogReport } from "./undraw-blog-report";
 export { default as UndrawDevAvatarIcon } from "./undraw-dev-avatar-icon";
 export { default as UndrawHello } from "./undraw-hello";
 export { default as UndrawInTheZone } from "./undraw-in-the-zone";
+export { default as UndrawMailbox } from "./undraw-mailbox";
 export { default as UndrawProductDemo } from "./undraw-product-demo";
