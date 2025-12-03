@@ -118,7 +118,7 @@ export function PgIconsBg() {
           value: 0.5,
         },
         size: {
-          value: { min: 4, max: 10 } // ここを大きくすると画像も大きくなる
+          value: { min: 6, max: 12 } // ここを大きくすると画像も大きくなる
         },
         shape: {
           type: "image",
