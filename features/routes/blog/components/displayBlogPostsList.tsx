@@ -55,7 +55,7 @@ const DisplayBlogPostsList = ({ allBlogs }: BlogListProps) => {
                     <article className="rounded-[5px] overflow-hidden  shadow-xl/30 shadow-pf-text transition-transform hover:-translate-y-4 duration-500">
                       <div className="h-40">
                         <img className="w-full h-50 object-cover"
-                          src={post.metadata.image ? post.metadata.image : "/images/svg/no-image.svg"}
+                          src={post.metadata.image ? post.metadata.image : "/images/blog/image-not-found.jpg"}
                           alt={`${post.metadata.summary}のブログ画像`} />
                       </div>
                       <div className="relative h-40 flex flex-col md:flex-row space-x-0 px-4 py-3 text-pf-text bg-pf-bg">
