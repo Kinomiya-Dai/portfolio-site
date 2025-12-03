@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import DarkModeToggle from './darkModeToggle'
+import { PiNavigationArrowFill } from 'react-icons/pi'
 
 const navItems = {
   '/about': {
@@ -14,10 +15,18 @@ const navItems = {
 }
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
-export function Navbar() {
+export function SpNavButton() {
   return (
     <>
-      <button className=''></button>
+      <button className='fixed bottom-6 right-6 z-50 w-12 h-12 cursor-pointer
+                         block tab:hidden
+                         rounded-full  bg-pf-bg shadow-2xl
+                         border border-pf-text/10
+                         '>
+        <div className='flex items-center justify-center'>
+          <PiNavigationArrowFill className='fill-pf-slider-ui w-5 h-5' />
+        </div>
+      </button>
       {/* ナビゲーションエリア */}
       <div>
         <ul>

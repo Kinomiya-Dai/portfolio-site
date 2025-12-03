@@ -40,7 +40,7 @@ export const lightIcons = [
     height: 32,
   },
   {
-    src: "/images/bgicons/common/Sispring.svg",
+    src: "/images/bgicons/common/SiSpring.svg",
     width: 32,
     height: 32,
   },
@@ -93,7 +93,7 @@ export const darkIcons = [
     height: 32,
   },
   {
-    src: "/images/bgicons/common/Sispring.svg",
+    src: "/images/bgicons/common/SiSpring.svg",
     width: 32,
     height: 32,
   },

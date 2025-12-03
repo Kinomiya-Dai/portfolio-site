@@ -1,9 +1,9 @@
 "use client"
 import Link from 'next/link'
 import DarkModeToggle from './darkModeToggle'
-import { PiNavigationArrowFill } from 'react-icons/pi'
 import { useCallback, useEffect, useState } from 'react'
 import clsx from 'clsx'
+import Image from 'next/image'
 
 const navItems = {
   '/about': {
@@ -57,16 +57,17 @@ export function Navbar() {
             "flex flex-row justify-between items-center",
             "relative md:relative",
             "pr-4 pl-3 pb-0",
-            "sm:pr-12 sm:pl-10",
+            "tab:pr-12 sm:pl-10",
             "border-b border-pf-ui-border dark:border-pf-ui-border-dark")}
           id="nav"
         >
-          <Link href="/">
+          <Link href="/" className='flex items-center'>
+            <Image src="favicon.svg" alt="サイトアイコン" width={24} height={24} />
             <h1 className='px-2 font-bold leading-14'>Kinomiya Dai</h1>
           </Link>
           <div className={cx("flex flex-row items-center justify-end")}>
             <ul className={cx("hidden flex-row items-center justify-start space-x-0 mr-8",
-              "sm:flex"
+              "tab:flex"
             )}>
               {Object.entries(navItems).map(([path, { name }]) => {
                 return (
@@ -88,17 +89,7 @@ export function Navbar() {
         </nav >
       </header>
       <div className='h-14'>
-
       </div>
-
-      <button className='fixed bottom-4 right-4 z-50 w-10 h-10 cursor-pointer
-                         rounded-full  bg-pf-bg shadow-2xl
-                         border border-pf-text/10
-                         '>
-        <div className='flex items-center justify-center'>
-          <PiNavigationArrowFill className='fill-pf-slider-ui w-4 h-4' />
-        </div>
-      </button>
     </>
   )
 }

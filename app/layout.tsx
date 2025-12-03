@@ -11,6 +11,7 @@ import { ThemeProvider } from 'next-themes'
 import { Noto_Sans_JP } from 'next/font/google'
 import clsx from 'clsx';
 import { PgIconsBg } from 'features/common/components/pgIconsBg'
+import { SpNavButton } from 'features/common/components/spNavButton'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -73,6 +74,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <SpNavButton />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
