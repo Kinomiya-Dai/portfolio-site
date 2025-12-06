@@ -54,6 +54,7 @@ function Code({ children, ...props }) {
 }
 
 function slugify(str) {
+  if (!str) return "";
   return str
     .toString()
 }

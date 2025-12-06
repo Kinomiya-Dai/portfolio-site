@@ -103,7 +103,7 @@ export default async function Work({ params }) {
         <div className='h-[324px]'>
           <img src={post.metadata.image} alt="" className='w-full h-full object-cover' />
         </div>
-        <article className="prose">
+        <article className="prose pt-4">
           <CustomMDX source={post.content} />
         </article>
       </div>

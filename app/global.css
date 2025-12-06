@@ -284,15 +284,15 @@ html {
 }
 
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-4xl font-medium tracking-tight mt-14 mb-8 space-x-3;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-2xl font-medium tracking-tight mt-14 mb-8 space-x-3 pb-2 border-b-2 border-pf-slider-ui dark:border-pf-slider-ui-dark;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-xl font-medium tracking-tight mt-8 mb-2;
 }
 
 .prose h4 {
