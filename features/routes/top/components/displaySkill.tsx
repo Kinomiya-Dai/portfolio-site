@@ -3,14 +3,14 @@ import { VscCode } from "react-icons/vsc";
 
 
 import { UndrawCodeThinking } from "features/common/components/svgs";
-import SkillCard from "features/common/components/skillcard";
+import SkillCard from "@features/routes/top/components/skillcard";
 import { languages,frameworks,tools,certifications } from "../constants/skillIconsLists";
 
 
 export function DisplaySkill() {
   return (
     <>
-      <section className='py-14 flex flex-col items-center gap-14 z-20 z-20'>
+      <section className='py-14 flex flex-col items-center gap-14 z-20'>
         <div className='w-full px-4 pc:w-4xl'>
           <h2 className='text-center text-4xl font-bold mb-24'>Skill-Stacks</h2>
           <section className='pb-32'>

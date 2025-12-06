@@ -30,12 +30,12 @@ const SkillCard: React.FC<Props> = ({ skills, className }) => {
       {skills.map((skill, index) => (
         <div
           key={index}
-          className="flex flex-col items-center
+          className="flex flex-col items-center relative
                      p-4 rounded-lg
                      shadow
                      transition hover:shadow-md
                      bg-pf-highlight-bg
-                     dark:bg-pf-highlight-bg-dark  dark:border dark:border-pf-skill-card-border"
+                     dark:bg-pf-highlight-bg-dark  dark:border dark:border-pf-skill-card-border overflow-hidden"
         >
           <div className="text-4xl mb-2">
             {React.isValidElement(skill.icon)
@@ -50,7 +50,16 @@ const SkillCard: React.FC<Props> = ({ skills, className }) => {
             className="w-full overflow-x-auto snap-x scrollbar-none scroll-smooth">
             <p className="text-lg text-center font-semibold whitespace-nowrap snap-start">{skill.name}</p>
           </div>
+          {!skill.exp &&
+            <div className="flex justify-center items-center
+                          absolute top-0 left-0 h-full w-full z-30
+                        bg-pf-text/65
+                        text-pf-bg">
+              取得予定
+            </div>
+          }
         </div>
+
       ))
       }
     </div >
