@@ -10,7 +10,6 @@ import { cx } from './utils/classnames'
 import { ThemeProvider } from 'next-themes'
 import { Noto_Sans_JP } from 'next/font/google'
 import clsx from 'clsx';
-import { PgIconsBg } from 'features/common/components/pgIconsBg'
 import { SpNavButton } from 'features/common/components/spNavButton'
 
 export const metadata: Metadata = {

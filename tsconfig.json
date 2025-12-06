@@ -18,6 +18,13 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "paths": {
+      "@features/*": [
+        "app/*",
+        "features/*",
+        "components/*"
+      ]
+    },
     "incremental": true,
     "plugins": [
       {
