@@ -15,7 +15,7 @@ import { SpNavButton } from 'features/common/components/spNavButton'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: '木乃宮 ダイ | Front/Back end Engineer',
+    default: '木乃宮 ダイ | フロントエンド/バックエンドエンジニア',
     template: '%s | 木宮大ポートフォリオ',
   },
   description: "木乃宮 ダイのポートフォリオサイトです。フロントエンド・バックエンド開発の制作実績や技術記事を掲載しています。",
