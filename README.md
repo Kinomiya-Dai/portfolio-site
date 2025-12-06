@@ -16,7 +16,7 @@
 - 🖼️ MDX でページを柔軟に構築  
 - 🎨 Tailwind 4 で統一感のある美しい UI  
 - ⚡ 高速なレンダリング（React 19 + Next 16）  
-- 📊 Works / Blog / About / Contact  
+- 📊 Top/ Works / Blog / About  
 - 📱 スマホでも見やすいレスポンシブ設計
 
 ---
